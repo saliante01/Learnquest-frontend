@@ -1,0 +1,31 @@
+.filtros-rendimiento {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.filtros-rendimiento label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.filtros-rendimiento input[type="radio"] {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.filtros-rendimiento input[type="radio"]:checked {
+  background-color: black;
+}

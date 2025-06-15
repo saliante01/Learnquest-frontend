@@ -1,0 +1,23 @@
+<div class="filtros-rendimiento">
+  <label>
+    <input
+      type="radio"
+      name="rendimiento"
+      [value]="rendimientoEnum.Mejores"
+      [checked]="seleccionado === rendimientoEnum.Mejores"
+      (change)="onSeleccionChange(rendimientoEnum.Mejores)"
+    />
+    Mejores rendimientos
+  </label>
+
+  <label>
+    <input
+      type="radio"
+      name="rendimiento"
+      [value]="rendimientoEnum.Peores"
+      [checked]="seleccionado === rendimientoEnum.Peores"
+      (change)="onSeleccionChange(rendimientoEnum.Peores)"
+    />
+    Peores rendimientos
+  </label>
+</div>
