@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 export enum Rendimiento {
   Mejores = 'mejores',
@@ -9,7 +8,7 @@ export enum Rendimiento {
 @Component({
   selector: 'app-filtros-rendimiento',
   standalone: true,
-  imports: [FormsModule],
+  imports: [],
   templateUrl: './filtros-rendimiento.component.html',
   styleUrls: ['./filtros-rendimiento.component.css']
 })
