@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="sidebar">
+    <h3>Estudiantes</h3>
+    <ul>
+      <li *ngFor="let estudiante of estudiantes"
+          (click)="seleccionarEstudiante(estudiante)"
+          [class.selected]="estudiante === estudianteSeleccionado">
+        {{ estudiante.nombre }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="carrusel">
+    <h3>Alumno: {{ estudianteSeleccionado.nombre }}</h3>
+
+    <div class="info-extra">
+      <div class="ultima-conexion">
+        <div class="circle"></div>
+        <span>
+          Última conexión: {{ formatearFecha(estudianteSeleccionado.ultimaConexion) }}
+        </span>
+      </div>
+      <div class="nivel-actual">
+        Actualmente en nivel {{ getNivelActual(estudianteSeleccionado) ?? '4' }}
+      </div>
+    </div>
+
+    <div class="tarjetas">
+      <div class="tarjeta"
+           *ngFor="let nivel of estudianteSeleccionado.niveles; let i = index"
+           [ngStyle]="{ 'background-image': 'url(assets/img' + (i + 1) + '.jpg)' }">
+
+        <div class="overlay">
+          <h4>Nivel {{ nivel.nivel }}</h4>
+          <div class="grafico">
+            <div class="circular" [style.background]="getConicGradient(nivel.rendimiento)">
+              <span>{{ nivel.rendimiento }}%</span>
+            </div>
+          </div>
+          <p class="contenido">{{ nivel.contenido }}</p>
+          <p>{{ nivel.estado }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

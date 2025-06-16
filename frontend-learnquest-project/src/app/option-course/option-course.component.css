@@ -1,0 +1,19 @@
+.option-btn {
+  display: block;               /* Asegura que cada botón esté en su propia línea */
+  width: 60%;                 /* Botón grande */
+  height: 12%;
+  margin: 15px auto;            /* Centrado horizontal + espacio vertical */
+  padding: 16px 24px;
+  font-size: 18px;
+  background-color: #d3d3d3;    /* Gris claro */
+  color: #000000;               /* Texto negro */
+  border: none;
+  border-radius: 12px;          /* Bordes redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 7%;
+}
+
+.option-btn:hover {
+  background-color: #b0b0b0;    /* Cambio al hacer hover */
+}

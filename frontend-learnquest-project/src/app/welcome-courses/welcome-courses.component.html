@@ -1,0 +1,18 @@
+<div class="main-container">
+  <div class="courses-container">
+    <div
+      class="card"
+      *ngFor="let course of courses"
+      [ngStyle]="{ 'background-color': course.color }"
+    >
+      <div class="card-header">
+        <span>{{ course.name }}</span>
+      </div>
+      <div class="card-footer">
+        <button (click)="goToCourse(course.id)">Ver curso</button>
+      </div>
+    </div>
+  </div>
+
+  <img src="assets/8257712.jpg" alt="Decoración" class="side-image" />
+</div>
