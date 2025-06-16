@@ -1,0 +1,44 @@
+<div class="carrusel">
+  <div class="header-nivel">
+    <div class="volver" (click)="verTodosLosNiveles()">
+      <span class="texto">Ver todos los niveles</span>
+      <span class="flecha">→</span>
+    </div>
+  </div>
+
+  <div class="contenedor-niveles">
+    <div class="columna-izquierda">
+      <h4 class="titulo-seccion">Nivel menos completado</h4>
+      <div class="tarjeta"
+           [ngStyle]="{ 'background-image': 'url(assets/img' + (nivelMenosCompletadoIndex + 1) + '.jpg)' }">
+        <div class="overlay">
+          <h4>Nivel {{ nivelMenosCompletado.nivel }}</h4>
+          <div class="completados-icono">
+            <p>{{ nivelMenosCompletado.completados }}/{{ nivelMenosCompletado.total }}</p>
+            <span class="icono">👤</span>
+          </div>
+          <p class="contenido">{{ nivelMenosCompletado.contenido }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columna-derecha">
+      <h4 class="titulo-seccion">Top 3 niveles más completados</h4>
+      <div class="tarjetas">
+        <div class="tarjeta"
+             *ngFor="let nivel of nivelesTop3; let i = index"
+             [ngStyle]="{ 'background-image': 'url(assets/img' + (nivel.originalIndex + 1) + '.jpg)' }">
+
+          <div class="overlay">
+            <h4>Nivel {{ nivel.nivel }}</h4>
+            <div class="completados-icono">
+              <p>{{ nivel.completados }}/{{ nivel.total }}</p>
+              <span class="icono">👤</span>
+            </div>
+            <p class="contenido">{{ nivel.contenido }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
