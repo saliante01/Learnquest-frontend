@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 export enum EmojiRendimiento {
   Bajo = '😔',
@@ -13,11 +13,15 @@ export enum EmojiRendimiento {
   styleUrl: './tarjeta-rendimiento-por-estudiante.component.css',
 })
 export class TarjetaRendimientoPorEstudianteComponent {
-  nombre = "Jorge";
-  nivel = "Nivel 1";
-  porcentaje = 15;
+  @Input() nombre!: string;
+  @Input() nivel!: string;
+  @Input() porcentaje!: number;
 
   obtenerEmoji(porcentaje: number): EmojiRendimiento {
-    return porcentaje < 20 ? EmojiRendimiento.Bajo : EmojiRendimiento.Medio;
+    return porcentaje <= 20 ? EmojiRendimiento.Bajo : EmojiRendimiento.Medio;
+  }
+
+  obtenerColorPorcentaje(porcentaje: number): string {
+    return porcentaje < 20 ? '#FF1010' : '#BEBC81';
   }
 }

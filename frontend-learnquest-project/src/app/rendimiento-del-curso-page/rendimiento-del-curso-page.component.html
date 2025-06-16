@@ -1,0 +1,28 @@
+<div class="rendimiento-del-curso-page">
+  <div class="header-container">
+    <button class="btn-volver" aria-label="Volver">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i>
+    </button>
+    <div class="cabecera-curso">
+      <p>3°F</p>
+      <div class="ultima-conexion">
+        <p>Última conexión en promedio: <span class="ultima-fecha">Hace 3 días</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="contenido-curso">
+    <app-filtros-rendimiento class="filtros-por-rendimiento"></app-filtros-rendimiento>
+    <div class="tarjetas-por-estudiante">
+      <app-tarjeta-rendimiento-por-estudiante [nombre]="'Jorge'" [nivel]="'Nivel 1'"
+        [porcentaje]="15"></app-tarjeta-rendimiento-por-estudiante>
+      <app-tarjeta-rendimiento-por-estudiante [nombre]="'Fabiola'" [nivel]="'Nivel 1'"
+        [porcentaje]="20"></app-tarjeta-rendimiento-por-estudiante>
+      <app-tarjeta-rendimiento-por-estudiante [nombre]="'Ricardo'" [nivel]="'Nivel 1'"
+        [porcentaje]="35"></app-tarjeta-rendimiento-por-estudiante>
+      <app-tarjeta-rendimiento-por-estudiante [nombre]="'Samuel'" [nivel]="'Nivel 2'"
+        [porcentaje]="36"></app-tarjeta-rendimiento-por-estudiante>
+      <app-tarjeta-rendimiento-por-estudiante [nombre]="'Oscar'" [nivel]="'Nivel 2'"
+        [porcentaje]="37"></app-tarjeta-rendimiento-por-estudiante>
+    </div>
+  </div>
+</div>
