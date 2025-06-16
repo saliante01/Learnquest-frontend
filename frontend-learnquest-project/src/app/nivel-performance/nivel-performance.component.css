@@ -106,3 +106,30 @@
   font-weight: 600;
   margin-top: 0.5rem;
 }
+.navegacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.navegacion button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.navegacion button:hover:not(:disabled) {
+  background-color: #d0d0d0;
+}
+
+.navegacion button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+

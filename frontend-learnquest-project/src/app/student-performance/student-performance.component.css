@@ -11,10 +11,10 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/preview.jpg');
   background-size: cover;
   background-position: center;
-  color: rgb(0, 0, 0); /* Opcional: si quieres que el texto contraste */
+  color: rgb(0, 0, 0);
 }
-.sidebar h3{
-    color: white;
+.sidebar h3 {
+  color: white;
 }
 
 .sidebar ul {
@@ -136,7 +136,33 @@
 
 .contenido {
   font-size: 18px;
-  color: #ffeb3b; /* Amarillo claro, puedes cambiarlo */
+  color: #ffeb3b;
   font-weight: 600;
   margin-top: 0.5rem;
+}
+
+.botones-carrusel {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.botones-carrusel button {
+  background-color: #ddd;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.botones-carrusel button:hover:not(:disabled) {
+  background-color: #ccc;
+}
+
+.botones-carrusel button:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
