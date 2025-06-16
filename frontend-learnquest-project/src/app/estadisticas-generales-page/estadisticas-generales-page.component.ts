@@ -17,9 +17,9 @@ export class EstadisticasGeneralesPageComponent {
   estadisticaGeneralSeleccionado: EstadisticaGeneral = this.estadisticaGeneralEnum.Grafico;
 
   cursos: Curso[] = [
-      { name: '3°ro A', value: 60, color: '#FF6384' },
-      { name: '3°ro B', value: 80, color: '#36A2EB' },
-      { name: '3°ro C', value: 45, color: '#FFCE56' }
+      { name: '3°A', value: 60, color: '#FF6384' },
+      { name: '3°B', value: 80, color: '#36A2EB' },
+      { name: '3°C', value: 45, color: '#FFCE56' }
   ];
 
   onCambioEstadisticas(nuevoValor: EstadisticaGeneral) {
