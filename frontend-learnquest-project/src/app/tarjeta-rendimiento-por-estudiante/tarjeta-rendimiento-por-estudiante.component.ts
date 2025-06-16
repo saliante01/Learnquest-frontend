@@ -17,11 +17,23 @@ export class TarjetaRendimientoPorEstudianteComponent {
   @Input() nivel!: string;
   @Input() porcentaje!: number;
 
-  obtenerEmoji(porcentaje: number): EmojiRendimiento {
-    return porcentaje <= 20 ? EmojiRendimiento.Bajo : EmojiRendimiento.Medio;
+  obtenerEmoji(porcentaje: number): EmojiRendimiento | '' {
+    if (porcentaje <= 20) {
+      return EmojiRendimiento.Bajo;
+    } else if (porcentaje <= 60) {
+      return EmojiRendimiento.Medio;
+    } else {
+      return '';
+    }
   }
 
   obtenerColorPorcentaje(porcentaje: number): string {
-    return porcentaje < 20 ? '#FF1010' : '#BEBC81';
+    if (porcentaje <= 20) {
+      return '#FF1010';
+    } else if (porcentaje <= 60) {
+      return '#BEBC81';
+    } else {
+      return '#3C3C3C';
+    }
   }
 }

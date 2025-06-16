@@ -1,9 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-
-export enum Rendimiento {
-  Mejores = 'mejores',
-  Peores = 'peores'
-}
+import { Rendimiento } from './rendimiento.enum';
 
 @Component({
   selector: 'app-filtros-rendimiento',

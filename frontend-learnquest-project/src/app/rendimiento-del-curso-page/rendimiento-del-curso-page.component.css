@@ -26,13 +26,13 @@
 }
 
 .cabecera-curso {
-  width: 50%;
+  padding-left: 200px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 100px;
-  padding: 0 80px;
+  gap: 50px;
 }
+
 
 .ultima-fecha {
   padding-left: 10px;
@@ -55,10 +55,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: -20px;
+}
+
+.filtros-por-rendimiento.con-margin {
   margin-bottom: 200px;
 }
 
-.tarjetas-por-estudiante {
+.tarjetas-por-estudiante-peores {
   height: 70%;
   display: flex;
   flex-direction: row;
@@ -66,4 +70,38 @@
   justify-content: center;
   align-items: center;
   gap: 4rem;
+}
+
+.tarjetas-por-estudiante-mejores {
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: -60px;
+}
+
+.top-1 {
+  gap: 4rem;
+}
+
+.top-2-3 {
+  gap: 6rem;
+}
+
+.top-4-5 {
+  gap: 24rem;
+}
+
+.emoji {
+  font-size: 50px;
+  margin-bottom: -50px;
 }

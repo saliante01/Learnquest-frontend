@@ -10,9 +10,15 @@
       </div>
     </div>
   </div>
+
   <div class="contenido-curso">
-    <app-filtros-rendimiento class="filtros-por-rendimiento"></app-filtros-rendimiento>
-    <div class="tarjetas-por-estudiante">
+    <app-filtros-rendimiento class="filtros-por-rendimiento"
+      [ngClass]="{ 'con-margin': rendimientoSeleccionado === rendimientoEnum.Peores }"
+      (seleccionadoChange)="onCambioRendimiento($event)">
+    </app-filtros-rendimiento>
+
+    @if(rendimientoSeleccionado === rendimientoEnum.Peores) {
+    <div class="tarjetas-por-estudiante-peores">
       <app-tarjeta-rendimiento-por-estudiante [nombre]="'Jorge'" [nivel]="'Nivel 1'"
         [porcentaje]="15"></app-tarjeta-rendimiento-por-estudiante>
       <app-tarjeta-rendimiento-por-estudiante [nombre]="'Fabiola'" [nivel]="'Nivel 1'"
@@ -24,5 +30,27 @@
       <app-tarjeta-rendimiento-por-estudiante [nombre]="'Oscar'" [nivel]="'Nivel 2'"
         [porcentaje]="37"></app-tarjeta-rendimiento-por-estudiante>
     </div>
+    } @else {
+    <div class="tarjetas-por-estudiante-mejores">
+      <div class="emoji">👑</div>
+      <div class="top top-1">
+        <app-tarjeta-rendimiento-por-estudiante [nombre]="'Felipe'" [nivel]="'Nivel 7'"
+          [porcentaje]="90"></app-tarjeta-rendimiento-por-estudiante>
+      </div>
+      <div class="top top-2-3">
+        <app-tarjeta-rendimiento-por-estudiante [nombre]="'Francisco'" [nivel]="'Nivel 5'"
+          [porcentaje]="90"></app-tarjeta-rendimiento-por-estudiante>
+        <app-tarjeta-rendimiento-por-estudiante [nombre]="'Sebastián'" [nivel]="'Nivel 5'"
+          [porcentaje]="80"></app-tarjeta-rendimiento-por-estudiante>
+      </div>
+
+      <div class="top top-4-5">
+        <app-tarjeta-rendimiento-por-estudiante [nombre]="'Juan'" [nivel]="'Nivel 4'"
+          [porcentaje]="85"></app-tarjeta-rendimiento-por-estudiante>
+        <app-tarjeta-rendimiento-por-estudiante [nombre]="'Diego'" [nivel]="'Nivel 4'"
+          [porcentaje]="84"></app-tarjeta-rendimiento-por-estudiante>
+      </div>
+    </div>
+    }
   </div>
 </div>
