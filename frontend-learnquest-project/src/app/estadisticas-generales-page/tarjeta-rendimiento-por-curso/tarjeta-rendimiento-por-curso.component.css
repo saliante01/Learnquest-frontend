@@ -1,0 +1,36 @@
+.tarjeta-rendimiento-por-curso {
+  width: 220px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.tarjeta-rendimiento-por-curso label {
+  color: #3c3c3c;
+  font-size: 20px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.tarjeta {
+  background-color: #e3e3e3;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: -6px;
+  display: flex;
+  flex-direction: column;
+  height: 40px;
+}
+
+.porcentaje {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.descripcion {
+  color: #3c3c3c;
+  margin: 1px 0;
+  font-size: 12px;
+  font-weight: 400;
+}

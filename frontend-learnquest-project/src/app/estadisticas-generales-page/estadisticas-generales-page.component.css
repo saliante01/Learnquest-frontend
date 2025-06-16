@@ -1,0 +1,42 @@
+.estadisticas-generales-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 1rem;
+  margin-left: 30px;
+}
+
+.estadisticas-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.top-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 60px;
+}
+
+.top-1 {
+  gap: 4rem;
+}
+
+.top-2-3 {
+  gap: 6rem;
+}
+
+.emoji {
+  font-size: 50px;
+}

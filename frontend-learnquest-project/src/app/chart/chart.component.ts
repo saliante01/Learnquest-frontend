@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, Input } from '@angular/core';
 
 import { Chart, BarController, BarElement, CategoryScale, LinearScale } from 'chart.js';
 import { CursoItemComponent } from "./curso-item/curso-item.component";
@@ -14,11 +14,7 @@ Chart.register(BarController, BarElement, CategoryScale, LinearScale);
 export class ChartComponent {
   @ViewChild('myChart') myChartRef!: ElementRef<HTMLCanvasElement>;
 
-  courses = [
-    { name: '3°ro A', value: 60, color: '#FF6384' },
-    { name: '3°ro B', value: 80, color: '#36A2EB' },
-    { name: '3°ro C', value: 45, color: '#FFCE56' }
-  ];
+   @Input() cursos: { name: string; value: number; color: string }[] = [];
 
   chartInstance?: Chart;
 
@@ -32,11 +28,11 @@ export class ChartComponent {
     this.chartInstance = new Chart(ctx!, {
       type: 'bar',
       data: {
-        labels: this.courses.map(() => ''),
+        labels: this.cursos.map(() => ''),
         datasets: [
           {
-            data: this.courses.map(c => c.value),
-            backgroundColor: this.courses.map(c => c.color),
+            data: this.cursos.map(c => c.value),
+            backgroundColor: this.cursos.map(c => c.color),
           },
         ]
       },

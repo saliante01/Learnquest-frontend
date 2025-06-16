@@ -1,0 +1,24 @@
+<div class="estadisticas-generales-page">
+  <app-filtros-estadisticas-generales
+    (seleccionadoChange)="onCambioEstadisticas($event)"></app-filtros-estadisticas-generales>
+
+  <div class="estadisticas-info">
+    @if(estadisticaGeneralSeleccionado === estadisticaGeneralEnum.Grafico) {
+    <app-chart [cursos]="cursos"></app-chart>
+    } @else {
+    <div class="top-info">
+      <div class="emoji">👑</div>
+      <div class="top top-1">
+        <app-tarjeta-rendimiento-por-curso [nombre]="cursos[0].name"
+          [porcentaje]="cursos[0].value"></app-tarjeta-rendimiento-por-curso>
+      </div>
+      <div class="top top-2-3">
+        <app-tarjeta-rendimiento-por-curso [nombre]="cursos[1].name"
+          [porcentaje]="cursos[1].value"></app-tarjeta-rendimiento-por-curso>
+        <app-tarjeta-rendimiento-por-curso [nombre]="cursos[2].name"
+          [porcentaje]="cursos[2].value"></app-tarjeta-rendimiento-por-curso>
+      </div>
+    </div>
+    }
+  </div>
+</div>

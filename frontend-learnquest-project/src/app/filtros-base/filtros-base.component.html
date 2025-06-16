@@ -1,0 +1,10 @@
+<div class="filtros">
+  @for(opcion of opciones; track opcion.value) {
+  <label>
+    <input type="radio" name="filtro" [value]="opcion.value" [checked]="seleccionado === opcion.value"
+      (change)="onSeleccionChange(opcion.value)" />
+    {{ opcion.label }}
+  </label>
+  }
+
+</div>

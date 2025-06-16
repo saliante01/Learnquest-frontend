@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EstadisticasGeneralesComponent } from './estadisticas-generales.component';
+import { EstadisticasGeneralesComponent } from './estadisticas-generales-page.component';
 
 describe('EstadisticasGeneralesComponent', () => {
   let component: EstadisticasGeneralesComponent;

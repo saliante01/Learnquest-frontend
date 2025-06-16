@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
-import { FiltrosRendimientoComponent } from './filtros-rendimiento/filtros-rendimiento.component';
 import { RouterModule, Routes } from '@angular/router';
-import { TarjetaRendimientoPorEstudianteComponent } from './tarjeta-rendimiento-por-estudiante/tarjeta-rendimiento-por-estudiante.component';
 import { RendimientoDelCursoPageComponent } from './rendimiento-del-curso-page/rendimiento-del-curso-page.component';
-import { ChartComponent } from './chart/chart.component';
+import { EstadisticasGeneralesPageComponent } from './estadisticas-generales-page/estadisticas-generales-page.component';
 
 export const routes: Routes = [
   { path: 'rendimiento-curso', component: RendimientoDelCursoPageComponent },
-  {path: 'estadisticas', component: ChartComponent},
+  {path: 'estadisticas', component: EstadisticasGeneralesPageComponent},
 ];
 
 @NgModule({
