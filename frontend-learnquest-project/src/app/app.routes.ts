@@ -3,9 +3,11 @@ import { FiltrosRendimientoComponent } from './filtros-rendimiento/filtros-rendi
 import { RouterModule, Routes } from '@angular/router';
 import { TarjetaRendimientoPorEstudianteComponent } from './tarjeta-rendimiento-por-estudiante/tarjeta-rendimiento-por-estudiante.component';
 import { RendimientoDelCursoPageComponent } from './rendimiento-del-curso-page/rendimiento-del-curso-page.component';
+import { ChartComponent } from './chart/chart.component';
 
 export const routes: Routes = [
   { path: 'rendimiento-curso', component: RendimientoDelCursoPageComponent },
+  {path: 'estadisticas', component: ChartComponent},
 ];
 
 @NgModule({
