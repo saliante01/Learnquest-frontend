@@ -21,14 +21,25 @@
         </span>
       </div>
       <div class="nivel-actual">
-        Actualmente en nivel {{ getNivelActual(estudianteSeleccionado) ?? '4' }}
-      </div>
+    <ng-container *ngIf="getNivelActual(estudianteSeleccionado); else completado">
+        Actualmente en nivel {{ getNivelActual(estudianteSeleccionado) }}
+    </ng-container>
+    <ng-template #completado>
+     Actualmente ha completado todos los niveles ✅
+    </ng-template>
+    </div>
+
+    </div>
+
+    <div class="botones-carrusel">
+      <button (click)="paginaAnterior()" [disabled]="paginaActual === 0">←</button>
+      <button (click)="paginaSiguiente()" [disabled]="paginaActual >= totalPaginas() - 1">→</button>
     </div>
 
     <div class="tarjetas">
       <div class="tarjeta"
-           *ngFor="let nivel of estudianteSeleccionado.niveles; let i = index"
-           [ngStyle]="{ 'background-image': 'url(assets/img' + (i + 1) + '.jpg)' }">
+           *ngFor="let nivel of nivelesPaginados(); let i = index"
+           [ngStyle]="{ 'background-image': 'url(assets/img' + (nivel.nivel) + '.jpg)' }">
 
         <div class="overlay">
           <h4>Nivel {{ nivel.nivel }}</h4>

@@ -8,10 +8,16 @@
     <h3 class="titulo-centro">Desempeño por Nivel</h3>
   </div>
 
+  <div class="navegacion">
+    <button (click)="paginaAnterior()" [disabled]="currentPage === 0">◀</button>
+    <span>Página {{ currentPage + 1 }} / {{ totalPaginas }}</span>
+    <button (click)="paginaSiguiente()" [disabled]="(currentPage + 1) * pageSize >= niveles.length">▶</button>
+  </div>
+
   <div class="tarjetas">
     <div class="tarjeta"
-         *ngFor="let nivel of niveles; let i = index"
-         [ngStyle]="{ 'background-image': 'url(assets/img' + (i + 1) + '.jpg)' }">
+         *ngFor="let nivel of nivelesPaginados; let i = index"
+         [ngStyle]="{ 'background-image': 'url(assets/img' + ((currentPage * pageSize) + i + 1) + '.jpg)' }">
       <div class="overlay">
         <h4>Nivel {{ nivel.nivel }}</h4>
         <div class="completados-icono">
