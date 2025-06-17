@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0 1rem;
+  padding: 2rem 1rem;
   margin-left: 30px;
 }
 
@@ -38,6 +38,6 @@
 }
 
 .emoji {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   font-size: 50px;
 }

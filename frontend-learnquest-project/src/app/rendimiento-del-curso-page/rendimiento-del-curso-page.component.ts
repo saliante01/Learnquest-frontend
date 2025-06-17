@@ -4,16 +4,21 @@ import { FiltrosRendimientoComponent } from './filtros-rendimiento/filtros-rendi
 import { TarjetaRendimientoPorEstudianteComponent } from './tarjeta-rendimiento-por-estudiante/tarjeta-rendimiento-por-estudiante.component';
 import { Rendimiento } from './filtros-rendimiento/rendimiento.enum';
 import { Estudiante } from './estudiante.interface';
+import { NavbarComponent } from "../navbar/navbar.component";
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-rendimiento-del-curso-page',
   standalone: true,
-  imports: [FiltrosRendimientoComponent, TarjetaRendimientoPorEstudianteComponent, CommonModule],
+  imports: [FiltrosRendimientoComponent, TarjetaRendimientoPorEstudianteComponent, CommonModule, NavbarComponent],
   templateUrl: './rendimiento-del-curso-page.component.html',
   styleUrl: './rendimiento-del-curso-page.component.css'
 })
 
 export class RendimientoDelCursoPageComponent {
+
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
   rendimientoEnum = Rendimiento;
 
   rendimientoSeleccionado: Rendimiento = this.rendimientoEnum.Mejores;
@@ -36,5 +41,9 @@ export class RendimientoDelCursoPageComponent {
 
   onCambioRendimiento(nuevoValor: Rendimiento) {
     this.rendimientoSeleccionado = nuevoValor;
+  }
+
+  goToOptionMenu() {
+    this.router.navigate(['/options', 1]);
   }
 }

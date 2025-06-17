@@ -1,0 +1,108 @@
+.carrusel {
+  flex: 1;
+  padding: 1rem;
+  margin-top: 0%;
+}
+
+.tarjetas {
+  margin-top: 8%;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.tarjeta {
+  min-width: 23%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  position: relative;
+  color: white;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+.header-nivel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+}
+
+.volver {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #000000;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.volver:hover {
+  color: #0056b3;
+}
+
+.flecha {
+  font-size: 20px;
+}
+
+.titulo-centro {
+  flex: 1;
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+  margin: 0;
+  margin-left: 28%;
+}
+
+
+.overlay {
+  backdrop-filter: brightness(0.7);
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay h4 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.overlay p {
+  margin: 0;
+  font-size: 25px;
+}
+
+.completados-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 1rem 0;
+}
+
+.numero {
+  font-size: 45px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.icono {
+  font-size: 36px;
+}
+
+.contenido {
+  font-size: 18px;
+  color: #ffeb3b;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}

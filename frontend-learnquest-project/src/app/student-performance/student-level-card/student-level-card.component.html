@@ -1,0 +1,12 @@
+<div class="tarjeta" [ngStyle]="{ 'background-image': 'url(' + backgroundUrl + ')' }">
+  <div class="overlay">
+    <h4>Nivel {{ nivel.nivel }}</h4>
+    <div class="grafico">
+      <div class="circular" [style.background]="getConicGradient(progresoAnimado)">
+        <span>{{ nivel.rendimiento }}%</span>
+      </div>
+    </div>
+    <p class="contenido">{{ nivel.contenido }}</p>
+    <p>{{ nivel.estado }}</p>
+  </div>
+</div>
