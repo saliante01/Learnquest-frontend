@@ -12,6 +12,7 @@ export class StudentPerformanceComponent {
   estudiantes = [
     {
       nombre: 'Juan Perez',
+      curso: '3A',
       ultimaConexion: '2025-06-23',
       niveles: [
         { nivel: 1, rendimiento: 100, estado: 'Completado',contenido:'Speaking'},
