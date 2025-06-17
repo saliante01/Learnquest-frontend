@@ -19,12 +19,12 @@
          *ngFor="let nivel of nivelesPaginados; let i = index"
          [ngStyle]="{ 'background-image': 'url(assets/img' + ((currentPage * pageSize) + i + 1) + '.jpg)' }">
       <div class="overlay">
-        <h4>Nivel {{ nivel.nivel }}</h4>
+        <h4>Nivel {{ nivel.nombreNivel }}</h4>
         <div class="completados-icono">
-          <p>{{ nivel.completados }}/{{ nivel.total }}</p>
+          <p>{{ nivel.totalAprobados }}/{{ nivel.totalAlumnos }}</p>
           <span class="icono">👤</span>
         </div>
-        <p class="contenido">{{ nivel.contenido }}</p>
+        <p class="contenido">{{ nivel.categoria }}</p>
       </div>
     </div>
   </div>

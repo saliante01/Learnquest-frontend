@@ -1,49 +1,78 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ResumenNivelesAprobacion } from '../nivel-performance/resumen-niveles-aprobacion.interface';
+import { NivelesService } from '../services/niveles-service';
 
 @Component({
   selector: 'app-nivel-perfomance-top3',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './nivel-perfomance-top3.component.html',
-  styleUrls: ['./nivel-perfomance-top3.component.css']
+  styleUrls: ['./nivel-perfomance-top3.component.css'],
 })
 export class NivelPerfomanceTop3Component {
-  id!: number;
+  cursoId!: number;
 
-  nivelesOriginal = [
-    { nivel: 1, completados: 20, total: 40, contenido: 'speaking' },
-    { nivel: 2, completados: 15, total: 40, contenido: 'listening' },
-    { nivel: 3, completados: 20, total: 40, contenido: 'reading' },
-    { nivel: 4, completados: 10, total: 40, contenido: 'writing' },
-    { nivel: 5, completados: 25, total: 40, contenido: 'grammar' },
-    { nivel: 6, completados: 5, total: 40, contenido: 'vocabulary' }
-  ];
+  resumenNiveles: ResumenNivelesAprobacion = null!;
+  nivelMenosCompletadoIndex: number = 0;
+  top3NivelesIndexes: number[] = [];
 
-  niveles = this.nivelesOriginal.map((nivel, index) => ({
-    ...nivel,
-    originalIndex: index
-  }));
+  constructor(
+    private nivelesService: NivelesService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
+  ngOnInit(): void {
+    this.cursoId = Number(this.route.snapshot.paramMap.get('id'));
 
-  nivelMenosCompletado = this.niveles.reduce((min, actual) =>
-    actual.completados < min.completados ? actual : min
-  );
+    if (!this.cursoId) {
+      console.error('ID de curso inválido');
+      return;
+    }
 
-  nivelMenosCompletadoIndex = this.nivelMenosCompletado.originalIndex;
+    this.cargarResumenDeNiveles();
+  }
 
-  nivelesTop3 = this.niveles
-    .filter(n => n.originalIndex !== this.nivelMenosCompletadoIndex)
-    .sort((a, b) => b.completados - a.completados)
-    .slice(0, 3);
+  cargarResumenDeNiveles(): void {
+    this.nivelesService.getResumenesNiveles(this.cursoId).subscribe({
+      next: (data) => {
+        this.resumenNiveles = data;
+        this.actualizarNivelMenosCompletadoIndex();
+        this.actualizarTop3NivelesIndexes();
+      },
+      error: (err) => console.error('Error al obtener los niveles', err),
+    });
+  }
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  actualizarNivelMenosCompletadoIndex(): void {
+    this.nivelMenosCompletadoIndex =
+      this.resumenNiveles.todosLosNiveles.findIndex(
+        (n) =>
+          n.nombreNivel ===
+          this.resumenNiveles.nivelConMenorAprobacion.nombreNivel
+      );
+  }
 
-  ngOnInit() {
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
+  actualizarTop3NivelesIndexes(): void {
+    if (
+      !this.resumenNiveles?.top3NivelesConMayorAprobacion ||
+      !this.resumenNiveles?.todosLosNiveles
+    ) {
+      this.resumenNiveles.top3NivelesConMayorAprobacion = [];
+      return;
+    }
+
+    this.resumenNiveles.top3NivelesConMayorAprobacion =
+      this.resumenNiveles.top3NivelesConMayorAprobacion.map((nivel) => {
+        const originalIndex = this.resumenNiveles.todosLosNiveles.findIndex(
+          (n) => n.nombreNivel === nivel.nombreNivel
+        );
+        return { ...nivel, originalIndex };
+      });
   }
 
   verTodosLosNiveles() {
-    this.router.navigate(['/nivel-performance', this.id]);
+    this.router.navigate(['/nivel-performance', this.cursoId]);
   }
 }

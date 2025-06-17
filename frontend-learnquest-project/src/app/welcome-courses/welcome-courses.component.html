@@ -3,13 +3,13 @@
     <div
       class="card"
       *ngFor="let course of courses"
-      [ngStyle]="{ 'background-color': course.color }"
+      [ngStyle]="{ 'background-color': course.colorCurso}"
     >
       <div class="card-header">
-        <span>{{ course.name }}</span>
+        <span>{{ course.nombreCurso }}</span>
       </div>
       <div class="card-footer">
-        <button (click)="goToCourse(course.id)">Ver curso</button>
+        <button (click)="goToCourse(course.idCurso)">Ver curso</button>
       </div>
     </div>
   </div>

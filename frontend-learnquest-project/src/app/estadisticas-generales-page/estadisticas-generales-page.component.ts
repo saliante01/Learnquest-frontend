@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
-import { ChartComponent } from '../chart/chart.component';
+import { Component, OnInit } from '@angular/core';
+import { ChartComponent } from './chart/chart.component';
 import { FiltrosEstadisticasGeneralesComponent } from './filtros-estadisticas-generales/filtros-estadisticas-generales.component';
 import { EstadisticaGeneral } from './filtros-estadisticas-generales/estadistica-general.enum';
 import { TarjetaRendimientoPorCursoComponent } from './tarjeta-rendimiento-por-curso/tarjeta-rendimiento-por-curso.component';
-import { Curso } from './curso.interface';
 import { NavbarComponent } from "../navbar/navbar.component";
+import { Estadisticas } from './estadisticas.interface';
+import { CursosService } from '../services/cursos-service';
 
 @Component({
   selector: 'app-estadisticas-generales-page',
@@ -13,15 +14,20 @@ import { NavbarComponent } from "../navbar/navbar.component";
   templateUrl: './estadisticas-generales-page.component.html',
   styleUrl: './estadisticas-generales-page.component.css',
 })
-export class EstadisticasGeneralesPageComponent {
+export class EstadisticasGeneralesPageComponent implements OnInit {
   estadisticaGeneralEnum = EstadisticaGeneral;
   estadisticaGeneralSeleccionado: EstadisticaGeneral = this.estadisticaGeneralEnum.Grafico;
 
-  cursos: Curso[] = [
-      { name: '3°A', value: 60, color: '#FF6384' },
-      { name: '3°B', value: 80, color: '#36A2EB' },
-      { name: '3°C', value: 45, color: '#FFCE56' }
-  ];
+  cursos: Estadisticas = null!;
+
+  constructor(private cursosService: CursosService) {}
+
+  ngOnInit(): void {
+    this.cursosService.getEstadisticasGenerales().subscribe({
+      next: (data) => (this.cursos = data),
+      error: (err) => console.error('Error al obtener cursos', err)
+    });
+  }
 
   onCambioEstadisticas(nuevoValor: EstadisticaGeneral) {
     this.estadisticaGeneralSeleccionado = nuevoValor;

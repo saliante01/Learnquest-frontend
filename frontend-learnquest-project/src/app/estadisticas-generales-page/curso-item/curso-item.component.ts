@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CursoPromedio } from '../../curso-promedio.interface';
 
 @Component({
   selector: 'app-curso-item',
@@ -7,7 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './curso-item.component.css'
 })
 export class CursoItemComponent {
-  @Input() nombre!: string;
-  @Input() color!: string;
-  @Input() porcentaje!: number;
+  @Input() curso: CursoPromedio = null!;
 }

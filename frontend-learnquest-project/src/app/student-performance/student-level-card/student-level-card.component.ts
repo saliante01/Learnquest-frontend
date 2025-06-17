@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NivelTarjeta } from '../../performance-student-page/nivel-tarjeta.interface';
 
 @Component({
   selector: 'app-student-level-card',
@@ -8,13 +9,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './student-level-card.component.css'
 })
 export class StudentLevelCardComponent {
-  @Input() nivel!: { nivel: number, rendimiento: number, contenido: string, estado: string };
+  @Input() nivel: NivelTarjeta = null!;
   @Input() backgroundUrl: string = '';
 
   progresoAnimado: number = 0;
 
   ngOnInit() {
-    this.animarProgreso(this.nivel.rendimiento);
+    this.animarProgreso(this.nivel.porcentajeAprobacion);
   }
 
   animarProgreso(meta: number) {

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CursoPromedio } from '../curso-promedio.interface';
 
 @Component({
   selector: 'app-tarjeta-rendimiento-por-curso',
@@ -7,6 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './tarjeta-rendimiento-por-curso.component.css',
 })
 export class TarjetaRendimientoPorCursoComponent {
-  @Input() nombre!: string;
-  @Input() porcentaje!: number;
+  @Input() curso: CursoPromedio = null!;
 }

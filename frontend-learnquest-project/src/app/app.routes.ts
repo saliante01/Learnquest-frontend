@@ -17,6 +17,6 @@ export const routes: Routes = [
   },
   { path: 'nivel-performance/:id', component: PerformanceNivelComponent },
   { path: 'top3/:id', component: Top3PerformanceNivelComponent },
-  { path: 'rendimiento-curso', component: RendimientoDelCursoPageComponent },
+  { path: 'rendimiento-curso/:id', component: RendimientoDelCursoPageComponent },
   { path: 'estadisticas-generales', component: EstadisticasGeneralesPageComponent },
 ];

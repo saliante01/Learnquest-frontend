@@ -19,8 +19,7 @@
     </app-filtros-rendimiento>
 
     <div *ngIf="rendimientoSeleccionado === rendimientoEnum.Peores" class="tarjetas-por-estudiante-peores">
-      <app-tarjeta-rendimiento-por-estudiante *ngFor="let estudiante of peoresEstudiantes" [nombre]="estudiante.nombre"
-        [nivel]="estudiante.nivel" [porcentaje]="estudiante.porcentaje">
+      <app-tarjeta-rendimiento-por-estudiante *ngFor="let estudiante of peoresEstudiantes" [alumno]="estudiante">
       </app-tarjeta-rendimiento-por-estudiante>
     </div>
 
@@ -28,20 +27,19 @@
       <div class="emoji">👑</div>
 
       <div class="top top-1" *ngIf="mejoresEstudiantes.length > 0">
-        <app-tarjeta-rendimiento-por-estudiante [nombre]="mejoresEstudiantes[0].nombre"
-          [nivel]="mejoresEstudiantes[0].nivel" [porcentaje]="mejoresEstudiantes[0].porcentaje">
+        <app-tarjeta-rendimiento-por-estudiante [alumno]="mejoresEstudiantes[0]">
         </app-tarjeta-rendimiento-por-estudiante>
       </div>
 
       <div class="top top-2-3" *ngIf="mejoresEstudiantes.length > 2">
         <app-tarjeta-rendimiento-por-estudiante *ngFor="let estudiante of mejoresEstudiantes.slice(1,3)"
-          [nombre]="estudiante.nombre" [nivel]="estudiante.nivel" [porcentaje]="estudiante.porcentaje">
+          [alumno]="estudiante">
         </app-tarjeta-rendimiento-por-estudiante>
       </div>
 
       <div class="top top-4-5" *ngIf="mejoresEstudiantes.length > 4">
         <app-tarjeta-rendimiento-por-estudiante *ngFor="let estudiante of mejoresEstudiantes.slice(3,5)"
-          [nombre]="estudiante.nombre" [nivel]="estudiante.nivel" [porcentaje]="estudiante.porcentaje">
+          [alumno]="estudiante">
         </app-tarjeta-rendimiento-por-estudiante>
       </div>
     </div>

@@ -1,12 +1,12 @@
 <div class="tarjeta-rendimiento-por-estudiante">
-  <label>{{ nombre }}</label>
+  <label>{{ alumno.nombreAlumno }}</label>
 
   <div class="tarjeta">
-    <h2 class="porcentaje" [style.color]="obtenerColorPorcentaje(porcentaje)">{{ porcentaje }}%</h2>
+    <h2 class="porcentaje" [style.color]="obtenerColorPorcentaje(alumno.promedioAprobacion)">{{ alumno.promedioAprobacion }}%</h2>
     <h3 class="descripcion">Rendimiento promedio</h3>
   </div>
 
-  <h3 class="nivel">{{ nivel }}</h3>
+  <h3 class="nivel">{{ alumno.nivelMasAltoSuperado }}</h3>
 
-  <div class="emoji">{{ obtenerEmoji(porcentaje) }}</div>
+  <div class="emoji">{{ obtenerEmoji(alumno.promedioAprobacion) }}</div>
 </div>

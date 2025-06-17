@@ -1,0 +1,9 @@
+<div class="chart-contenedor">
+  <canvas #myChart width="400" height="400"></canvas>
+
+  <div class="cursos">
+    @for (curso of cursos; track curso.nombreCurso) {
+    <app-curso-item [curso]="curso">></app-curso-item>
+    }
+  </div>
+</div>

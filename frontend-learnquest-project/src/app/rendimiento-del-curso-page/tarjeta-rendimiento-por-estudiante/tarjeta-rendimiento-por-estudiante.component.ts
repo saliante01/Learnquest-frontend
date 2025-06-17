@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { RankingAlumno } from '../ranking-alumno.interface';
 
 export enum EmojiRendimiento {
   Bajo = '😔',
@@ -13,9 +14,7 @@ export enum EmojiRendimiento {
   styleUrl: './tarjeta-rendimiento-por-estudiante.component.css',
 })
 export class TarjetaRendimientoPorEstudianteComponent {
-  @Input() nombre!: string;
-  @Input() nivel!: string;
-  @Input() porcentaje!: number;
+  @Input() alumno: RankingAlumno = null!;
 
   obtenerEmoji(porcentaje: number): EmojiRendimiento | '' {
     if (porcentaje <= 20) {
