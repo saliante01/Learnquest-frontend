@@ -13,12 +13,14 @@ export class StudentPerformanceComponent {
   estudiantes = [
     {
       nombre: 'Juan Perez',
+      curso: '3A',
       ultimaConexion: '2025-06-23',
       niveles: [
         { nivel: 1, rendimiento: 100, estado: 'Completado',contenido:'Speaking'},
         { nivel: 2, rendimiento: 50, estado: 'Completado' , contenido: 'Listening'},
         { nivel: 3, rendimiento: 0, estado: 'No completado', contenido: 'Writing'},
-        { nivel: 4, rendimiento: 0, estado: 'No completado' , contenido: 'Reading'}
+        { nivel: 4, rendimiento: 0, estado: 'No completado' , contenido: 'Reading'},
+        { nivel : 5, rendimiento: 0, estado: 'No completado', contenido: 'Readking'}
       ]
     },
     {
@@ -85,9 +87,12 @@ export class StudentPerformanceComponent {
 
 
   estudianteSeleccionado = this.estudiantes[0];
+  paginaActual = 0;
+  nivelesPorPagina = 4;
 
   seleccionarEstudiante(estudiante: any) {
     this.estudianteSeleccionado = estudiante;
+    this.paginaActual = 0;
   }
 
   getConicGradient(porcentaje: number): string {
@@ -100,8 +105,33 @@ export class StudentPerformanceComponent {
   }
 
   formatearFecha(fechaISO: string): string {
-    const opciones: Intl.DateTimeFormatOptions = { day: '2-digit', month: 'long', year: 'numeric' };
+    const opciones: Intl.DateTimeFormatOptions = {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric'
+    };
     return new Date(fechaISO).toLocaleDateString('es-CL', opciones);
+  }
+
+  nivelesPaginados() {
+    const inicio = this.paginaActual * this.nivelesPorPagina;
+    return this.estudianteSeleccionado.niveles.slice(inicio, inicio + this.nivelesPorPagina);
+  }
+
+  totalPaginas(): number {
+    return Math.ceil(this.estudianteSeleccionado.niveles.length / this.nivelesPorPagina);
+  }
+
+  paginaSiguiente() {
+    if (this.paginaActual < this.totalPaginas() - 1) {
+      this.paginaActual++;
+    }
+  }
+
+  paginaAnterior() {
+    if (this.paginaActual > 0) {
+      this.paginaActual--;
+    }
   }
 
 }

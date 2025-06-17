@@ -11,10 +11,10 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/preview.jpg');
   background-size: cover;
   background-position: center;
-  color: rgb(0, 0, 0); /* Opcional: si quieres que el texto contraste */
+  color: rgb(0, 0, 0);
 }
-.sidebar h3{
-    color: white;
+.sidebar h3 {
+  color: white;
 }
 
 .sidebar ul {
