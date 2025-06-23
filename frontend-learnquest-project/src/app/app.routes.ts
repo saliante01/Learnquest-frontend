@@ -8,6 +8,7 @@ import { Top3PerformanceNivelComponent } from './top3-performance-nivel/top3-per
 import { RendimientoDelCursoPageComponent } from './rendimiento-del-curso-page/rendimiento-del-curso-page.component';
 import { EstadisticasGeneralesPageComponent } from './estadisticas-generales-page/estadisticas-generales-page.component';
 export const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'navbar', component: NavbarComponent },
   { path: 'home', component: HomeComponent },
   { path: 'options/:id', component: OptionsComponent },

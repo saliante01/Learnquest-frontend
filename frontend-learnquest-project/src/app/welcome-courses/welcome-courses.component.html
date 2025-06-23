@@ -1,17 +1,10 @@
 <div class="main-container">
   <div class="courses-container">
-    <div
-      class="card"
+    <app-course-card
       *ngFor="let course of courses"
-      [ngStyle]="{ 'background-color': course.colorCurso}"
-    >
-      <div class="card-header">
-        <span>{{ course.nombreCurso }}</span>
-      </div>
-      <div class="card-footer">
-        <button (click)="goToCourse(course.idCurso)">Ver curso</button>
-      </div>
-    </div>
+      [course]="course"
+      (viewCourse)="goToCourse($event)"
+    ></app-course-card>
   </div>
 
   <img src="assets/8257712.jpg" alt="Decoración" class="side-image" />

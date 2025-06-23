@@ -9,7 +9,7 @@ import { Estadisticas } from '../estadisticas-generales-page/estadisticas.interf
   providedIn: 'root',
 })
 export class CursosService {
-  private baseUrl = 'http://localhost:8082/api/cursos';
+  private baseUrl = 'http://200.13.4.221:8082/api/cursos';
 
   constructor(private http: HttpClient) {}
 

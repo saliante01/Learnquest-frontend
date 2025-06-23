@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { StudentPerformanceComponent } from "../student-performance/student-performance.component";
 import { AlumnosService } from '../services/alumnos-service';
-import { AlumnoItem } from './alumno-item.interface';
 import { ActivatedRoute } from '@angular/router';
+import { CursoConAlumnos } from './curso-con-alumnos.interface';
 
 @Component({
   selector: 'app-performance-student-page',
@@ -11,9 +11,9 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './performance-student-page.component.html',
   styleUrl: './performance-student-page.component.css'
 })
-export class PerformanceStudentPageComponent {
+export class PerformanceStudentPageComponent implements OnInit {
 
-  alumnos: AlumnoItem[] = [];
+  curso: CursoConAlumnos = null!;
 
   constructor(private alumnosService: AlumnosService, private route: ActivatedRoute) {}
 
@@ -26,8 +26,10 @@ export class PerformanceStudentPageComponent {
     }
 
     this.alumnosService.getAlumnosPorCurso(cursoId).subscribe({
-      next: (data) => this.alumnos = data,
-      error: (err) => console.error('Error al obtener alumnos', err)
+      next: (data) => {
+        this.curso = data;
+      },
+      error: (err) => console.error('Error al obtener curso', err)
     });
   }
 }

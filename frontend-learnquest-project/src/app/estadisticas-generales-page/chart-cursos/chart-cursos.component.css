@@ -1,0 +1,20 @@
+.chart-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+}
+
+.cursos {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  padding: 16px;
+  border: 1px solid #cecece;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  max-height: 400px;
+  overflow-y: auto;
+  min-width: 200px;
+}

@@ -7,7 +7,7 @@
 
   <div class="estadisticas-info">
     @if(estadisticaGeneralSeleccionado === estadisticaGeneralEnum.Grafico) {
-    <app-chart [cursos]="cursos.todosLosCursos"></app-chart>
+    <app-chart-cursos [cursos]="cursos.todosLosCursos"></app-chart-cursos>
     } @else {
     <div class="top-info">
       <div class="emoji">👑</div>

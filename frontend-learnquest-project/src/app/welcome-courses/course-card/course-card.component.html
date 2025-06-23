@@ -1,0 +1,9 @@
+<div class="card" [ngStyle]="{ 'background-color': colorHtml }">
+  <div class="card-header">
+    <span>{{ course.nombreCurso }}</span>
+  </div>
+  <app-chart-curso-rendimiento-preview [alumnos]="course.alumnosPromedio" [cursoColorHtml]="colorHtml"></app-chart-curso-rendimiento-preview>
+  <div class="card-footer">
+    <button (click)="goToCourse()">Ver curso</button>
+  </div>
+</div>

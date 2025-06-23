@@ -1,32 +1,32 @@
-<div class="container">
+<div class="container" *ngIf="estudianteSeleccionado as estudiante">
   <div class="sidebar">
-    <h3>Estudiantes  {{ estudianteSeleccionado.curso }}</h3>
+    <h3>Estudiantes {{ nombreCurso }}</h3>
     <ul>
-      <li *ngFor="let estudiante of alumnos" (click)="seleccionarEstudiante(estudiante)"
-        [class.selected]="estudiante.nombreAlumno === estudianteSeleccionado.nombreAlumno">
-        {{ estudiante.nombreAlumno }}
+      <li *ngFor="let alumno of alumnos"
+          (click)="seleccionarEstudiante(alumno)"
+          [class.selected]="alumno.nombreAlumno === estudiante.nombreAlumno">
+        {{ alumno.nombreAlumno }}
       </li>
     </ul>
   </div>
 
   <div class="carrusel">
-    <h3>Alumno {{ estudianteSeleccionado.nombreAlumno }}</h3>
+    <h3>Alumno {{ estudiante.nombreAlumno }}</h3>
     <div class="info-extra">
       <div class="ultima-conexion">
         <div class="circle"></div>
         <span>
-          Última conexión: {{ formatearFecha(estudianteSeleccionado.ultimaConexion) }}
+          Última conexión: {{ formatearFecha(estudiante.ultimaConexion) }}
         </span>
       </div>
       <div class="nivel-actual">
-    <ng-container *ngIf="getNivelActual(estudianteSeleccionado); else completado">
-        Actualmente en nivel {{ getNivelActual(estudianteSeleccionado) }}
-    </ng-container>
-    <ng-template #completado>
-     Actualmente ha completado todos los niveles ✅
-    </ng-template>
-    </div>
-
+        <ng-container *ngIf="getNivelActual(estudiante); else completado">
+          Actualmente en nivel {{ getNivelActual(estudiante) }}
+        </ng-container>
+        <ng-template #completado>
+          Actualmente ha completado todos los niveles ✅
+        </ng-template>
+      </div>
     </div>
 
     <div class="botones-carrusel">
@@ -35,8 +35,11 @@
     </div>
 
     <div class="tarjetas">
-      <app-student-level-card *ngFor="let nivel of nivelesPaginados(); let i = index" [nivel]="nivel"
-        [backgroundUrl]="'assets/img' + (i + 1) + '.jpg'" class="tarjeta-container">
+      <app-student-level-card
+        *ngFor="let nivel of nivelesPaginados(); let i = index"
+        [nivel]="nivel"
+        [backgroundUrl]="'assets/img' + (i + 1) + '.jpg'"
+        class="tarjeta-container">
       </app-student-level-card>
     </div>
   </div>

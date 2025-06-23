@@ -28,6 +28,6 @@ export class OptionCourseComponent {
   }
 
   goToCoursePerformance() {
-    this.router.navigate(['/rendimiento-curso']);
+    this.router.navigate(['/rendimiento-curso', this.courseId]);
   }
 }

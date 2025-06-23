@@ -1,9 +1,4 @@
-import {
-  Component,
-  ViewChild,
-  ElementRef,
-  Input,
-} from '@angular/core';
+import { Component, ViewChild, ElementRef, Input } from '@angular/core';
 
 import {
   Chart,
@@ -12,8 +7,7 @@ import {
   CategoryScale,
   LinearScale,
 } from 'chart.js';
-import { CursoItemComponent } from './curso-item/curso-item.component';
-import { CursoPromedio } from '../curso-promedio.interface';
+import { ChartBarItem } from './chart-bar-item.interface';
 
 Chart.register(BarController, BarElement, CategoryScale, LinearScale);
 
@@ -21,12 +15,13 @@ Chart.register(BarController, BarElement, CategoryScale, LinearScale);
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css'],
-  imports: [CursoItemComponent],
 })
 export class ChartComponent {
   @ViewChild('myChart') myChartRef!: ElementRef<HTMLCanvasElement>;
 
-  @Input() cursos: CursoPromedio[] = [];
+  @Input() items: ChartBarItem[] = [];
+  @Input() width = 400;
+  @Input() height = 400;
 
   chartInstance?: Chart;
 
@@ -40,11 +35,13 @@ export class ChartComponent {
     this.chartInstance = new Chart(ctx!, {
       type: 'bar',
       data: {
-        labels: this.cursos.map(() => ''),
+        labels: this.items.map(() => ''),
         datasets: [
           {
-            data: this.cursos.map((c) => c.rendimientoPromedio),
-            backgroundColor: this.cursos.map((c) => c.colorCurso),
+            data: this.items.map((i) => i.value),
+            backgroundColor: this.items.map((i) => i.color),
+            categoryPercentage: 1.0,
+            barPercentage: 1.0,
           },
         ],
       },
@@ -58,6 +55,8 @@ export class ChartComponent {
           x: {
             ticks: { display: false },
             grid: { display: false },
+            min: -0.5,
+            max: this.items.length - 0.5,
           },
           y: {
             beginAtZero: true,

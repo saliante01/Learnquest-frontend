@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartComponent } from './chart/chart.component';
 import { FiltrosEstadisticasGeneralesComponent } from './filtros-estadisticas-generales/filtros-estadisticas-generales.component';
 import { EstadisticaGeneral } from './filtros-estadisticas-generales/estadistica-general.enum';
 import { TarjetaRendimientoPorCursoComponent } from './tarjeta-rendimiento-por-curso/tarjeta-rendimiento-por-curso.component';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { Estadisticas } from './estadisticas.interface';
 import { CursosService } from '../services/cursos-service';
+import { ChartCursosComponent } from './chart-cursos/chart-cursos.component';
 
 @Component({
   selector: 'app-estadisticas-generales-page',
   standalone: true,
-  imports: [ChartComponent, FiltrosEstadisticasGeneralesComponent, TarjetaRendimientoPorCursoComponent, NavbarComponent],
+  imports: [ChartCursosComponent, FiltrosEstadisticasGeneralesComponent, TarjetaRendimientoPorCursoComponent, NavbarComponent],
   templateUrl: './estadisticas-generales-page.component.html',
   styleUrl: './estadisticas-generales-page.component.css',
 })

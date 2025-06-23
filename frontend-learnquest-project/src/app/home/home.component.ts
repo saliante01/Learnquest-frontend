@@ -6,6 +6,7 @@ import { CursosService } from '../services/cursos-service';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [NavbarComponent, WelcomeCoursesComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

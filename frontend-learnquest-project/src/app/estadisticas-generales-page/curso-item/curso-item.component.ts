@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CursoPromedio } from '../../curso-promedio.interface';
+import { CursoPromedio } from '../curso-promedio.interface';
 
 @Component({
   selector: 'app-curso-item',

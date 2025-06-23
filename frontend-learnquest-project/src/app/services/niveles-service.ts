@@ -7,7 +7,7 @@ import { ResumenNivelesAprobacion } from '../nivel-performance/resumen-niveles-a
   providedIn: 'root',
 })
 export class NivelesService {
-  private baseUrl = 'http://localhost:8082/api/niveles';
+  private baseUrl = 'http://200.13.4.221:8082/api/niveles';
 
   constructor(private http: HttpClient) {}
 
